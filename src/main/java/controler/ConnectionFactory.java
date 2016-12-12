@@ -18,7 +18,7 @@ public class ConnectionFactory {
         try {
             //norbert
             System.out.println("BEFORE CLASS.FORNAME CONECTADO SIM");
-            //Class.forName("com.mysql.cj.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             System.out.println("TRY CONECTADO SIM");
 
             return DriverManager.getConnection("jdbc:mysql://"+ url +"/"+baseDeDados+"?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", ""+
@@ -27,10 +27,10 @@ public class ConnectionFactory {
             throw new RuntimeException(e);
         }
         //norbert
-       // catch (ClassNotFoundException e) {
-         //   System.out.println(e.getMessage());
-         //   System.out.println("CATCH SIM");
-          //  return null;
-       // }
+        catch (ClassNotFoundException e) {
+            System.out.println(e.getMessage());
+            System.out.println("CATCH SIM");
+            return null;
+        }
     }
 }
